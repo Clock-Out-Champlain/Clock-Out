@@ -16,6 +16,20 @@ public class MovementAI : MonoBehaviour
     // If a movement opportunity was successful or not
     private bool movementOpportunitySuccess;
     public string currentPoint;
+    [Header("Advanced ai")]
+    public int startingAILevel;
+    public int updateAIAtPowerLevelA;
+    public int aiAtPowerLevelA;
+    public bool powerLevelAReached = false;
+    public int updateAIAtPowerLevelB;
+    public int aiAtPowerLevelB;
+    public bool powerLevelBReached = false;
+    public int updateAIAtPowerLevelC;
+    public int aiAtPowerLevelC;
+    public bool powerLevelCReached = false;
+    public int updateAIAtPowerLevelD;
+    public int aiAtPowerLevelD;
+    public bool powerLevelDReached = false;
     [Header("Debug text ui")]
     public TextMeshProUGUI movementOpportunityTimerText;
     public TextMeshProUGUI currentAILevelText;
@@ -37,6 +51,7 @@ public class MovementAI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        aILevel = startingAILevel;
         movementOpportunityTimer = movementOpportunityTimerLength;
         currentPoint = "1";
         GameObject entitySprite = GameObject.Find("Rampage");
@@ -57,10 +72,33 @@ public class MovementAI : MonoBehaviour
             movementOpportunityTimer = movementOpportunityTimerLength;
             executeMovementOpportunity();
         }
-
+        checkForAIUpdate();
         UpdateDebugInfo();
     }
-
+    void checkForAIUpdate()
+    {
+        var battery = FindAnyObjectByType<BatteryDisplay>();
+        if (battery.batteryAmount >= updateAIAtPowerLevelA && !powerLevelAReached)
+        {
+            aILevel = aiAtPowerLevelA;
+            powerLevelAReached = true;
+        }
+        else if (battery.batteryAmount >= updateAIAtPowerLevelB && !powerLevelBReached)
+        {
+            aILevel = aiAtPowerLevelB;
+            powerLevelBReached = true;
+        }
+        else if (battery.batteryAmount >= updateAIAtPowerLevelC && !powerLevelCReached)
+        {
+            aILevel = aiAtPowerLevelC;
+            powerLevelCReached = true;
+        }
+        else if (battery.batteryAmount >= updateAIAtPowerLevelD && !powerLevelDReached)
+        {
+            aILevel = aiAtPowerLevelD;
+            powerLevelDReached = true;
+        }
+}
     void UpdateDebugInfo()
     {
         movementOpportunityTimerText.text = movementOpportunityTimer.ToString(format: "0.0000");

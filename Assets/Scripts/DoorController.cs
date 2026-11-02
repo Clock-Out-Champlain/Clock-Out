@@ -1,15 +1,30 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class DoorController : MonoBehaviour
 {
+    [Header("Door Heat")]
+    private float doorHeatTimer = 0;
+    public int doorHeat;
+    public int doorHeatIncreaseAfterSec;
+    public int doorHeatMult;
+    [Header("Door Heat Objects")]
+    public GameObject heatLow;
+    public GameObject heatMid;
+    public GameObject heatHigh;
+    [Header("Door Power Drain")]
     public bool doorPowerDrainEnabled = true;
     public float doorPowerDain = -0.001f;
+    [Header("Misc")]
     public bool doorOpen = true;
+    [Header("Door Open/Close")]
     public GameObject door;
     public float closeSpeed = 200f;
     public GameObject openPos;
     public GameObject closePos;
+    [Header("Debug text ui")]
+    public TextMeshProUGUI heatTimerText;
 
     private Transform target;
     private bool doorMoving = false;
@@ -72,7 +87,56 @@ public class DoorController : MonoBehaviour
         // Drain power if door is closed
         if (doorPowerDrainEnabled && doorOpen == false)
         {
-            batteryScript.ChangeBattery(doorPowerDain);
+            batteryScript.ChangeBattery(doorPowerDain * doorHeat);
         }
+        manageDoorHeat();
+    }
+
+    void manageDoorHeat()
+    {
+        // Manage the door heat timer
+        if (doorHeatTimer < 0)
+        {
+            doorHeatTimer = 0;
+        }
+        else if (doorOpen)
+        {
+            doorHeatTimer -= Time.deltaTime;
+        }
+        else
+        {
+            doorHeatTimer += Time.deltaTime;
+        }
+        // Manage the door heat multiplier
+        if (doorHeatTimer >= doorHeatIncreaseAfterSec * 3)
+        {
+            doorHeat = 4 * doorHeatMult;
+            heatLow.SetActive(true);
+            heatMid.SetActive(true);
+            heatHigh.SetActive(true);
+        }
+        else if (doorHeatTimer >= doorHeatIncreaseAfterSec * 2)
+        {
+            doorHeat = 2 * doorHeatMult;
+            heatLow.SetActive(true);
+            heatMid.SetActive(true);
+            heatHigh.SetActive(false);
+        }
+        else if (doorHeatTimer >= doorHeatIncreaseAfterSec)
+        {
+            doorHeat = doorHeatMult;
+            heatLow.SetActive(true);
+            heatMid.SetActive(false);
+            heatHigh.SetActive(false);
+        }
+        else
+        {
+            doorHeat = 1;
+            heatLow.SetActive(false);
+            heatMid.SetActive(false);
+            heatHigh.SetActive(false);
+        }
+        // Manage debug text
+        heatTimerText.text = "Heat Timer: " + doorHeatTimer.ToString(format: "0.0000");
     }
 }
