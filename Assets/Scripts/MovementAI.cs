@@ -8,7 +8,7 @@ public class MovementAI : MonoBehaviour
     // The ai level of the entity
     [Header("Basic ai")]
     public int aILevel;
-    public float movementOpportunityTimerLength = 5f;
+    public float movementOpportunityTimerLength = 4.97f;
     // The movement opportunity timer
     private float movementOpportunityTimer;
     // If true = start the timer, if false = don't start the timer
@@ -60,6 +60,15 @@ public class MovementAI : MonoBehaviour
     // Update is called once per frame
     void Update()
    {
+        killIfPowerOut();
+        if (aILevel <= 0)
+        {
+            updatePosition("0");
+        }
+        else if (currentPoint == "0")
+        {
+            updatePosition("1");
+        }
         // Prevent the timer from happening if movementOpportunityTimerStart = false
         if (!movementOpportunityTimerActive) return;
 
@@ -74,6 +83,17 @@ public class MovementAI : MonoBehaviour
         }
         checkForAIUpdate();
         UpdateDebugInfo();
+    }
+    void killIfPowerOut()
+    {
+        var battery = FindAnyObjectByType<BatteryDisplay>();
+        if (battery.batteryAmount <= 0)
+        {
+            aILevel = 20;
+            skipToPoint3Chance = 0;
+            goToPoint4sChance = 0;
+            returnToPoint4Chance = 0;
+}
     }
     void checkForAIUpdate()
     {
@@ -216,7 +236,11 @@ public class MovementAI : MonoBehaviour
         {
             audioPlayer.playFootSteps(HEAVYFOOTSTEPS);
         }
-        if (currentPoint == "1")
+        if (currentPoint == "0")
+        {
+            entitySprite.transform.position = new Vector3(-329.4571f, 15f, 562.9229f);
+        }
+        else if (currentPoint == "1")
         {
             entitySprite.transform.position = new Vector3(-329.4571f, 15f, 401.6519f);
         }
