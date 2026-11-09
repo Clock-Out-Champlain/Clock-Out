@@ -8,12 +8,23 @@ public class AudioController : MonoBehaviour
     public AudioClip buttonWork;
     public AudioClip buttonFail;
     public AudioClip footsteps;
+    public AudioClip elecZap;
+    public AudioClip powerOut;
+    public AudioClip altPowerOut;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    public void PowerDrain()
+    {
+        audioSource.PlayOneShot(elecZap, 0.5f);
+    }
+    public void PowerOut()
+    {
+        audioSource.PlayOneShot(powerOut, 0.5f);
+    }
     public void PlayDoorThump()
     {
         audioSource.PlayOneShot(metallicThump, 1f);
