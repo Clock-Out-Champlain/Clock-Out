@@ -1697,6 +1697,7 @@ MonoBehaviour:
   tabletPowerDrain: -0.00005
   mathCanvas: {fileID: 1881046759}
   tabletHomeCanvas: {fileID: 1752755515}
+  CharacterCanvas: {fileID: 1161389896}
 --- !u!1 &199720757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,10 +2531,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282535836}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 691723872}
   m_Father: {fileID: 1881046764}
@@ -5117,8 +5118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c6cf832ffa7974f93cdc35563f261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanvasSwitcher
-  mathCanvas: {fileID: 1881046759}
   tabletHomeCanvas: {fileID: 1752755515}
+  mathCanvas: {fileID: 1881046759}
+  characterCanvas: {fileID: 1161389896}
 --- !u!1 &599377808
 GameObject:
   m_ObjectHideFlags: 0
@@ -8160,7 +8162,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 581677281}
         m_TargetAssemblyTypeName: CanvasSwitcher, Assembly-CSharp
-        m_MethodName: OpenMathGame
+        m_MethodName: OpenRandomGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16759,8 +16761,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1761520082}
   - {fileID: 282535837}
+  - {fileID: 1761520082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

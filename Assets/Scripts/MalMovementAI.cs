@@ -66,13 +66,13 @@ public class MalMovementAI : MonoBehaviour
         {
             currentPoint = "0";
             updatePosition(currentPoint);
-            Debug.Log("0");
+            
         }
         else if (currentPoint == "0")
         {
             currentPoint = "1";
             updatePosition(currentPoint);
-            Debug.Log("1");
+            
         }
         // Prevent the timer from happening if movementOpportunityTimerStart = false
         if (!movementOpportunityTimerActive) return;

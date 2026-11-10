@@ -14,6 +14,7 @@ public class TabletController : MonoBehaviour
     [Header("Screens")]
     public GameObject mathCanvas;
     public GameObject tabletHomeCanvas;
+    public GameObject CharacterCanvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +22,7 @@ public class TabletController : MonoBehaviour
         debugCanvas.SetActive(false);
         tabletHomeCanvas.SetActive(false);
         mathCanvas.SetActive(false);
+        CharacterCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,16 +35,18 @@ public class TabletController : MonoBehaviour
             if (tabletUp && batteryScript.batteryAmount > batteryScript.batteryMinValue)
             {
                 tabletUp = false;
-                // turn on the home tablet canvas and turn off all non tablet canvases
+                //turn off all tablet canvases
                 tabletHomeCanvas.SetActive(false);
                 mathCanvas.SetActive(false);
+                CharacterCanvas.SetActive(false);
             }
             else
             {
                 tabletUp = true;
-                // turn off all tablet canvases
+                // turn on the home tablet canvas and turn off all non tablet canvases
                 tabletHomeCanvas.SetActive(true);
                 mathCanvas.SetActive(false);
+                CharacterCanvas.SetActive(false);
             }
         }
         // Turn off tablet if there is no power
@@ -52,6 +56,7 @@ public class TabletController : MonoBehaviour
             // turn on the home tablet canvas and turn off all non tablet canvases
             tabletHomeCanvas.SetActive(false);
             mathCanvas.SetActive(false);
+            CharacterCanvas.SetActive(false);
         }
         if (debugAllowed)
         {

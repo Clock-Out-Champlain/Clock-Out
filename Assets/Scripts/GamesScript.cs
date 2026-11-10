@@ -415,7 +415,7 @@ public class GamesScript : MonoBehaviour
             characterSubmitButton.onClick.RemoveListener(CheckCharacterSequence);
     }
 }
-
+//Fix So that when you close when you anwser and its cheking the anwser is correct it dosent freze on both games and the timer closses so it dosnt contune if you close the tablet because right now when you close the tablet the timer contuines and you lose opwer also when you open and close the tablet you should always start on the home tablet screen because your sapose to get a random game each time and if you close the tablet on the game the question should get randimized for both
 
 
 
