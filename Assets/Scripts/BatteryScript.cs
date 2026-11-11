@@ -16,6 +16,8 @@ public class BatteryDisplay : MonoBehaviour
     public TMP_Text debugBatteryText;
     public TMP_Text homeBatteryText;
     public TMP_Text mathBatteryText;
+    public TMP_Text characterBatteryText;
+    public TMP_Text radarBatteryText;
 
     private void Start()
     {
@@ -47,6 +49,8 @@ public class BatteryDisplay : MonoBehaviour
         int percentage = Mathf.RoundToInt(batteryAmount);
         homeBatteryText.text = percentage + "%";
         mathBatteryText.text = percentage + "%";
+        characterBatteryText.text = percentage + "%";
+        radarBatteryText.text = percentage + "%";
     }
 
     public void ChangeBattery(float value)

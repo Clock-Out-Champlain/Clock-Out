@@ -15,6 +15,7 @@ public class TabletController : MonoBehaviour
     public GameObject mathCanvas;
     public GameObject tabletHomeCanvas;
     public GameObject CharacterCanvas;
+    public GameObject radarCanvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,7 @@ public class TabletController : MonoBehaviour
         tabletHomeCanvas.SetActive(false);
         mathCanvas.SetActive(false);
         CharacterCanvas.SetActive(false);
+        radarCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class TabletController : MonoBehaviour
                 tabletHomeCanvas.SetActive(false);
                 mathCanvas.SetActive(false);
                 CharacterCanvas.SetActive(false);
+                radarCanvas.SetActive(false);
             }
             else
             {
@@ -47,20 +50,22 @@ public class TabletController : MonoBehaviour
                 tabletHomeCanvas.SetActive(true);
                 mathCanvas.SetActive(false);
                 CharacterCanvas.SetActive(false);
+                radarCanvas.SetActive(false);
             }
         }
         // Turn off tablet if there is no power
         if (batteryScript.batteryAmount <= batteryScript.batteryMinValue)
         {
             tabletUp = false;
-            // turn on the home tablet canvas and turn off all non tablet canvases
+            // turn off all tablet canvases
             tabletHomeCanvas.SetActive(false);
             mathCanvas.SetActive(false);
             CharacterCanvas.SetActive(false);
+            radarCanvas.SetActive(false);
         }
         if (debugAllowed)
         {
-            // Enable debug into when '~' is pressed
+            // Enable debug into when '`'('~') is pressed
             if (Input.GetKeyDown(KeyCode.BackQuote))
             {
                 if (debugOnScreen)

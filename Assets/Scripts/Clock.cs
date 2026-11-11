@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Clock : MonoBehaviour
 {
@@ -25,14 +26,13 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var mainMenu = FindAnyObjectByType<MainMenu>();
         clockTimer += Time.deltaTime;
         clockHours = (int)(clockTimer / hourLength) + clockHourStart;
         clockMinutes = (int)(clockTimer % hourLength);
         updateClock();
         if (clockHours >= clockHourEnd)
         {
-            mainMenu.BackToMainMenu();
+            SceneManager.LoadScene("DeathScreenClock");
         }
 
     }
