@@ -194,6 +194,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4857697}
   m_CullTransparentMesh: 1
+--- !u!1 &19083166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19083168}
+  - component: {fileID: 19083167}
+  m_Layer: 0
+  m_Name: Doorman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &19083167
+SpriteRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19083166}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5d35999f00a5cb34588a77b5d0e186b5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 7bed82cdd9911534e8daf85715554d55, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.44, y: 4.98}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
+--- !u!4 &19083168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19083166}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 53.8, y: 12.3482, z: -24.3}
+  m_LocalScale: {x: 2.8960698, y: 2.8960698, z: 0.579214}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &20260631
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,75 +863,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &55860666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 55860667}
-  - component: {fileID: 55860668}
-  m_Layer: 5
-  m_Name: CharacterQuestionController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &55860667
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55860666}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1161389901}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &55860668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55860666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a815ae4c929ea45b448135b9c5c0f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MathGameController
-  mathQuestionText: {fileID: 0}
-  mathAnswerInput: {fileID: 0}
-  mathFeedbackText: {fileID: 0}
-  mathScoreText: {fileID: 0}
-  mathSubmitButton: {fileID: 0}
-  mathCanvas: {fileID: 0}
-  mathBatteryGain: 5
-  mathBatteryLoss: -10
-  sequenceText: {fileID: 1036288624}
-  characterAnswerInput: {fileID: 1975397682}
-  characterTimerText: {fileID: 556647136}
-  tasksCompleteText: {fileID: 914238818}
-  characterFeedbackText: {fileID: 861777460}
-  characterSubmitButton: {fileID: 705287143}
-  characterCanvas: {fileID: 1161389896}
-  characterBatteryGain: 4
-  characterBatteryLoss: -7
-  startingSequenceLength: 5
-  maximumSequenceLength: 12
-  baseTime: 5
-  timePerCharacter: 2
 --- !u!1 &59622580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2114,7 @@ MonoBehaviour:
   debugAllowed: 1
   debugCanvas: {fileID: 62151388}
   tabletPowerDrainEnabled: 1
-  tabletPowerDrain: -0.00005
+  tabletPowerDrain: -0.05
   mathCanvas: {fileID: 1881046759}
   tabletHomeCanvas: {fileID: 1752755515}
   CharacterCanvas: {fileID: 1161389896}
@@ -7283,6 +7306,11 @@ MonoBehaviour:
   elecZap: {fileID: 8300000, guid: 289390ef799da464082b121cf545c2f7, type: 3}
   powerOut: {fileID: 8300000, guid: 71fb4e91f6aec9a499f91dcd6aee6215, type: 3}
   altPowerOut: {fileID: 8300000, guid: bc47ceb7f1bea2c479bc2781d85d3d5c, type: 3}
+  gunLoad: {fileID: 8300000, guid: cffacba76e2244146b606dec515baa40, type: 3}
+  gunshot: {fileID: 8300000, guid: a7621ecb612fd1d4e9b039052c6885aa, type: 3}
+  placeholder: {fileID: 8300000, guid: 5c8242fe45d23ba4db6bb9528d872180, type: 3}
+  doormanVoiceClipCooldown: 0
+  doormanVoiceClipCooldownLength: 20
 --- !u!82 &603656846
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13781,6 +13809,187 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076870778}
   m_CullTransparentMesh: 1
+--- !u!1 &1077382394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077382395}
+  - component: {fileID: 1077382397}
+  - component: {fileID: 1077382396}
+  m_Layer: 0
+  m_Name: DoorHeatText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1077382395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077382394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.9915886}
+  m_LocalScale: {x: 0.18451102, y: 0.08458094, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1339495836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.024612427, y: 0.6395035}
+  m_SizeDelta: {x: 10.7494, y: 2.8539}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1077382396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077382394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Door Heat
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656bu
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -0.06797981, y: -0.08196449, z: -0.066791534, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1077382397}
+  m_maskType: 0
+--- !u!23 &1077382397
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077382394}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1079254704
 GameObject:
   m_ObjectHideFlags: 0
@@ -14872,7 +15081,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 55860667}
   - {fileID: 199720758}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17211,6 +17419,7 @@ Transform:
   - {fileID: 2029672442}
   - {fileID: 550888928}
   - {fileID: 918972108}
+  - {fileID: 1077382395}
   m_Father: {fileID: 816494421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1339495837
@@ -19580,6 +19789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090771800d4b63c42b6b9d815efb9534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorStuff
+  entitySprite: {fileID: 19083166}
+  voiceClipPlayed: 0
+  doorHeatTimer: 0
   doorHeat: 0
   doorHeatIncreaseAfterSec: 5
   doorHeatMult: 2
@@ -19587,7 +19799,7 @@ MonoBehaviour:
   heatMid: {fileID: 550888927}
   heatHigh: {fileID: 918972107}
   doorPowerDrainEnabled: 1
-  doorPowerDain: -0.001
+  doorPowerDain: -0.5
   doorOpen: 1
   door: {fileID: 1578642159}
   closeSpeed: 200
@@ -20502,7 +20714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BatteryDisplay
   mainMenu: {fileID: 0}
   passivePowerDrainEnabled: 1
-  passivePowerDrain: -0.000005
+  passivePowerDrain: -0.005
   powerOutSoundPlayed: 0
   batteryAmount: 30
   batteryMinValue: 0
@@ -21304,7 +21516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -53}
+  m_AnchoredPosition: {x: -110, y: -27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1745110709
@@ -21561,7 +21773,7 @@ GameObject:
   - component: {fileID: 1761520082}
   - component: {fileID: 1761520083}
   m_Layer: 5
-  m_Name: MathQuestionController
+  m_Name: MinigameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21579,7 +21791,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1881046764}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21606,15 +21818,15 @@ MonoBehaviour:
   mathCanvas: {fileID: 1881046759}
   mathBatteryGain: 5
   mathBatteryLoss: -10
-  sequenceText: {fileID: 0}
-  characterAnswerInput: {fileID: 0}
-  characterTimerText: {fileID: 0}
-  tasksCompleteText: {fileID: 1160853706}
-  characterFeedbackText: {fileID: 0}
-  characterSubmitButton: {fileID: 0}
-  characterCanvas: {fileID: 0}
-  characterBatteryGain: 10
-  characterBatteryLoss: -10
+  sequenceText: {fileID: 1036288624}
+  characterAnswerInput: {fileID: 1975397682}
+  characterTimerText: {fileID: 556647136}
+  tasksCompleteText: {fileID: 914238818}
+  characterFeedbackText: {fileID: 861777460}
+  characterSubmitButton: {fileID: 705287143}
+  characterCanvas: {fileID: 1161389896}
+  characterBatteryGain: 4
+  characterBatteryLoss: -7
   startingSequenceLength: 5
   maximumSequenceLength: 12
   baseTime: 5
@@ -23012,7 +23224,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282535837}
-  - {fileID: 1761520082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23849,7 +24060,7 @@ Light:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1000
   m_Range: 72.221275
-  m_SpotAngle: 87.20506
+  m_SpotAngle: 179
   m_InnerSpotAngle: 0
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
@@ -27327,6 +27538,7 @@ SceneRoots:
   - {fileID: 1132791381}
   - {fileID: 1911213721}
   - {fileID: 1261870741}
+  - {fileID: 19083168}
   - {fileID: 62151392}
   - {fileID: 1328526437}
   - {fileID: 1881046764}
@@ -27336,6 +27548,7 @@ SceneRoots:
   - {fileID: 1578642162}
   - {fileID: 275211873}
   - {fileID: 512583380}
+  - {fileID: 1761520082}
   - {fileID: 1456082013}
   - {fileID: 387934173}
   - {fileID: 1693468881}

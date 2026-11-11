@@ -30,7 +30,7 @@ public class BatteryDisplay : MonoBehaviour
         var mainMenu = FindAnyObjectByType<MainMenu>();
         if (passivePowerDrainEnabled)
         {
-            ChangeBattery(passivePowerDrain);
+            ChangeBattery(passivePowerDrain * Time.deltaTime);
         }
         if ( batteryAmount >= batteryMaxValue)
         {

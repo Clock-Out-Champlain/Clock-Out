@@ -82,7 +82,7 @@ public class TabletController : MonoBehaviour
         }
         if (tabletPowerDrainEnabled && tabletUp == true)
         {
-            batteryScript.ChangeBattery(tabletPowerDrain);
+            batteryScript.ChangeBattery(tabletPowerDrain * Time.deltaTime);
         }
     }
 }

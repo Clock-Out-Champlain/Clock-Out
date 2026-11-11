@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+    public GameObject entitySprite;
+    public bool voiceClipPlayed = false;
     [Header("Door Heat")]
-    private float doorHeatTimer = 0;
+    public float doorHeatTimer = 0;
     public int doorHeat;
     public int doorHeatIncreaseAfterSec;
     public int doorHeatMult;
@@ -87,13 +90,15 @@ public class DoorController : MonoBehaviour
         // Drain power if door is closed
         if (doorPowerDrainEnabled && doorOpen == false)
         {
-            batteryScript.ChangeBattery(doorPowerDain * doorHeat);
+            batteryScript.ChangeBattery(doorPowerDain * doorHeat * Time.deltaTime);
         }
         manageDoorHeat();
     }
 
     void manageDoorHeat()
     {
+        var audioPlayer = FindAnyObjectByType<AudioController>();
+
         // Manage the door heat timer
         if (doorHeatTimer < 0)
         {
@@ -108,12 +113,28 @@ public class DoorController : MonoBehaviour
             doorHeatTimer += Time.deltaTime;
         }
         // Manage the door heat multiplier
-        if (doorHeatTimer >= doorHeatIncreaseAfterSec * 3)
+        if (doorHeatTimer >= doorHeatIncreaseAfterSec * 5)
+        {
+            StartCoroutine(audioPlayer.Jumpscare("Doorman"));
+            entitySprite.SetActive(true);
+        }
+        else if (doorHeatTimer >= doorHeatIncreaseAfterSec * 4)
+        {
+            if (!voiceClipPlayed)
+            {
+                audioPlayer.PlayDoormanVoiceClip();
+                voiceClipPlayed = true;
+            }
+            entitySprite.SetActive(true);
+        }
+        else if (doorHeatTimer >= doorHeatIncreaseAfterSec * 3)
         {
             doorHeat = 4 * doorHeatMult;
             heatLow.SetActive(true);
             heatMid.SetActive(true);
             heatHigh.SetActive(true);
+            entitySprite.SetActive(false);
+            voiceClipPlayed = false;
         }
         else if (doorHeatTimer >= doorHeatIncreaseAfterSec * 2)
         {
@@ -121,6 +142,8 @@ public class DoorController : MonoBehaviour
             heatLow.SetActive(true);
             heatMid.SetActive(true);
             heatHigh.SetActive(false);
+            entitySprite.SetActive(false);
+            voiceClipPlayed = false;
         }
         else if (doorHeatTimer >= doorHeatIncreaseAfterSec)
         {
@@ -128,6 +151,8 @@ public class DoorController : MonoBehaviour
             heatLow.SetActive(true);
             heatMid.SetActive(false);
             heatHigh.SetActive(false);
+            entitySprite.SetActive(false);
+            voiceClipPlayed = false;
         }
         else
         {
@@ -135,6 +160,8 @@ public class DoorController : MonoBehaviour
             heatLow.SetActive(false);
             heatMid.SetActive(false);
             heatHigh.SetActive(false);
+            entitySprite.SetActive(false);
+            voiceClipPlayed = false;
         }
         // Manage debug text
         heatTimerText.text = "Heat Timer: " + doorHeatTimer.ToString(format: "0.0000");
