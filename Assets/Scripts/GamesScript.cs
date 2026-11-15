@@ -701,7 +701,6 @@ public class GamesScript : MonoBehaviour
 
         UpdateTasksComplete();
     }
-
     private bool HasMathGame()
     {
         return mathQuestionText != null ||
@@ -778,6 +777,12 @@ public class GamesScript : MonoBehaviour
 
     private void Update()
     {
+        // Allows you to press enter to input
+        if (Input.GetKeyDown(KeyCode.Return) && mathCanvas.activeInHierarchy)
+            CheckMathAnswer();
+        if (Input.GetKeyDown(KeyCode.Return) && characterCanvas.activeInHierarchy)
+            CheckCharacterSequence();
+
         if (!HasCharacterGame())
             return;
 
@@ -946,7 +951,7 @@ public class GamesScript : MonoBehaviour
 
     private void GenerateCharacterSequence()
     {
-        const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string characters = "ABCDFGHIJKLMNOPQRSTUVXYZ";
 
         currentSequence = "";
 
@@ -1141,7 +1146,6 @@ public class GamesScript : MonoBehaviour
     {
         if (mathSubmitButton != null)
             mathSubmitButton.onClick.RemoveListener(CheckMathAnswer);
-
         if (characterSubmitButton != null)
             characterSubmitButton.onClick.RemoveListener(CheckCharacterSequence);
     }

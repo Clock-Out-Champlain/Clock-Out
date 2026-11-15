@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MovementAI : MonoBehaviour
 {
@@ -153,7 +154,6 @@ public class MovementAI : MonoBehaviour
 
     void successfulMovementOpportunity()
     {
-        var mainMenu = FindAnyObjectByType<MainMenu>();
         // Random number for multible possible directions
         int randomPercent = UnityEngine.Random.Range(1, 101);
         if (currentPoint == "1")
@@ -211,8 +211,8 @@ public class MovementAI : MonoBehaviour
             }
             else
             {
+                SceneManager.LoadScene("DeathScreenRampage"); 
                 Debug.Log("Jumpscare");
-                mainMenu.BackToMainMenu();
             }
         }
         else

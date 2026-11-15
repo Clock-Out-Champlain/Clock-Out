@@ -10,6 +10,8 @@ public class CanvasSwitcher : MonoBehaviour
     public GameObject mathCanvas;
     public GameObject characterCanvas;
 
+    public GameObject radarCanvas;
+
     /*
     [Header("Simon Says")]
     public GameObject simonSaysCanvas;
@@ -40,6 +42,7 @@ public class CanvasSwitcher : MonoBehaviour
         /*
         simonSaysCanvas.SetActive(false);
         */
+        radarCanvas.SetActive(false);
 
         // Randomly choose between Math and Character
         int randomGame = Random.Range(0, 2);
@@ -75,6 +78,7 @@ public class CanvasSwitcher : MonoBehaviour
         /*
         simonSaysCanvas.SetActive(false);
         */
+        radarCanvas.SetActive(false);
 
         if (tabletHomeCanvas != null)
         {
@@ -82,6 +86,17 @@ public class CanvasSwitcher : MonoBehaviour
         }
     }
 
+    // Open Radar directly
+    public void OpenRadar()
+    {
+        tabletHomeCanvas.SetActive(false);
+        characterCanvas.SetActive(false);
+        mathCanvas.SetActive(false);
+        /*
+        simonSaysCanvas.SetActive(false);
+        */
+        radarCanvas.SetActive(true);
+    }
 
     // Open Math Game directly
     public void OpenMathGame()
@@ -89,10 +104,10 @@ public class CanvasSwitcher : MonoBehaviour
         tabletHomeCanvas.SetActive(false);
         characterCanvas.SetActive(false);
         mathCanvas.SetActive(true);
-
         /*
         simonSaysCanvas.SetActive(false);
         */
+        radarCanvas.SetActive(false);
     }
 
 
@@ -102,10 +117,10 @@ public class CanvasSwitcher : MonoBehaviour
         tabletHomeCanvas.SetActive(false);
         mathCanvas.SetActive(false);
         characterCanvas.SetActive(true);
-
         /*
         simonSaysCanvas.SetActive(false);
         */
+        radarCanvas.SetActive(false);
     }
 
 
@@ -117,6 +132,7 @@ public class CanvasSwitcher : MonoBehaviour
         mathCanvas.SetActive(false);
         characterCanvas.SetActive(false);
         simonSaysCanvas.SetActive(true);
+        radarCanvas.SetActive(false);
     }
     */
 }
