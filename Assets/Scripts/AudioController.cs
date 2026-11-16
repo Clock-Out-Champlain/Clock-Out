@@ -51,14 +51,21 @@ public class AudioController : MonoBehaviour
     }
     public IEnumerator Jumpscare(string entity)
     {
+        Debug.Log("JUMPSCARE 2");
         if (!jumpscared)
         {
+            Debug.Log("JUMPSCARE 3");
             jumpscared = true;
             if (entity == "Doorman")
             {
                 audioSource.PlayOneShot(gunshot, 1f);
                 yield return new WaitForSeconds(gunshot.length);
                 SceneManager.LoadScene("DeathScreenDoorman");
+            }
+            else if (entity == "Eyesore")
+            {
+                Debug.Log("JUMPSCARE 4");
+                SceneManager.LoadScene("DeathScreenEyesore");
             }
         }
     }

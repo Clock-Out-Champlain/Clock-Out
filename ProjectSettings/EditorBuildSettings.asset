@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScreenDoorman.unity
     guid: 65e2d3ad22946384cb70d02f36f581d6
+  - enabled: 1
+    path: Assets/Scenes/DeathScreenEyesore.unity
+    guid: 30bfb7b4144a8054cb99f84d968421aa
   m_configObjects: {}
