@@ -1,0 +1,7 @@
+Risks:
+
+1. Not knowing How to create Textures for the map for an example "walls".
+
+2. Not Knowing How to code something to make something work for an example the code for Math Game or the Simon Says Game.
+
+3. Skill Levels for our game and balancing out the game for the players and who plays our game.
