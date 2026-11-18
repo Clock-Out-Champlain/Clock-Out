@@ -52,7 +52,6 @@ public class MovementAI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        aILevel = startingAILevel;
         movementOpportunityTimer = movementOpportunityTimerLength;
         currentPoint = "1";
         GameObject entitySprite = GameObject.Find("Rampage");
@@ -60,7 +59,7 @@ public class MovementAI : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-   {
+    {
         killIfPowerOut();
         if (aILevel <= 0)
         {
@@ -85,6 +84,57 @@ public class MovementAI : MonoBehaviour
         checkForAIUpdate();
         UpdateDebugInfo();
     }
+
+    public void ChangeAIDifficulty(int difficulty)
+    {
+        if (difficulty == 0)
+        {
+            Debug.Log("difficulty: 0");
+            startingAILevel = 1;
+            updateAIAtPowerLevelA = 40;
+            aiAtPowerLevelA = 3;
+            updateAIAtPowerLevelB = 50;
+            aiAtPowerLevelB = 6;
+            updateAIAtPowerLevelC = 75;
+            aiAtPowerLevelC = 10;
+            updateAIAtPowerLevelD = 90;
+            aiAtPowerLevelD = 14;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 1)
+        {
+            Debug.Log("difficulty: 1");
+            startingAILevel = 8;
+            updateAIAtPowerLevelA = 45;
+            aiAtPowerLevelA = 10;
+            updateAIAtPowerLevelB = 60;
+            aiAtPowerLevelB = 15;
+            updateAIAtPowerLevelC = 75;
+            aiAtPowerLevelC = 18;
+            updateAIAtPowerLevelD = 90;
+            aiAtPowerLevelD = 20;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 2)
+        {
+            Debug.Log("difficulty: 2");
+            startingAILevel = 20;
+            updateAIAtPowerLevelA = 0;
+            aiAtPowerLevelA = 20;
+            updateAIAtPowerLevelB = 0;
+            aiAtPowerLevelB = 20;
+            updateAIAtPowerLevelC = 0;
+            aiAtPowerLevelC = 20;
+            updateAIAtPowerLevelD = 0;
+            aiAtPowerLevelD = 20;
+            aILevel = startingAILevel;
+        }
+        else
+        {
+            Debug.LogError("Ram difficulty error");
+        }
+    }
+
     void killIfPowerOut()
     {
         var battery = FindAnyObjectByType<BatteryDisplay>();
@@ -94,8 +144,9 @@ public class MovementAI : MonoBehaviour
             skipToPoint3Chance = 0;
             goToPoint4sChance = 0;
             returnToPoint4Chance = 0;
-}
+        }
     }
+
     void checkForAIUpdate()
     {
         var battery = FindAnyObjectByType<BatteryDisplay>();
@@ -119,7 +170,8 @@ public class MovementAI : MonoBehaviour
             aILevel = aiAtPowerLevelD;
             powerLevelDReached = true;
         }
-}
+    }
+
     void UpdateDebugInfo()
     {
         movementOpportunityTimerText.text = movementOpportunityTimer.ToString(format: "0.0000");
@@ -229,6 +281,7 @@ public class MovementAI : MonoBehaviour
         currentPoint = "1";
         updatePosition(currentPoint);
     }
+
     void updatePosition(string currentPoint)
     {
         var audioPlayer = FindAnyObjectByType<AudioController>();

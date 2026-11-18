@@ -49,6 +49,7 @@ public class EyeMovementAI : MonoBehaviour
     [Header("Path split chances")]
 
     public MainMenu mainMenu;
+    public ScreenEffects screenEffects;
     public TabletController tablet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -71,7 +72,7 @@ public class EyeMovementAI : MonoBehaviour
     void Update()
     {
         var audioPlayer = FindAnyObjectByType<AudioController>();
-        if (!inOffice && !movementAnimationActive && !exitAnimationActive)
+        if (!inOffice && !movementAnimationActive && !exitAnimationActive && aILevel > 0)
         {
             agroTimer += Time.deltaTime;
         }
@@ -100,6 +101,56 @@ public class EyeMovementAI : MonoBehaviour
         CheckForAIUpdate();
         UpdateDebugInfo();
         PlayLeaveAnimation();
+    }
+
+    public void ChangeAIDifficulty(int difficulty)
+    {
+        if (difficulty == 0)
+        {
+            startingAILevel = 0;
+            forceAppearAtPower = 70;
+            updateAIAtPowerLevelA = 70;
+            aiAtPowerLevelA = 1;
+            updateAIAtPowerLevelB = 80;
+            aiAtPowerLevelB = 3;
+            updateAIAtPowerLevelC = 90;
+            aiAtPowerLevelC = 5;
+            updateAIAtPowerLevelD = 100;
+            aiAtPowerLevelD = 7;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 1)
+        {
+            startingAILevel = 4;
+            forceAppearAtPower = 40;
+            updateAIAtPowerLevelA = 45;
+            aiAtPowerLevelA = 7;
+            updateAIAtPowerLevelB = 60;
+            aiAtPowerLevelB = 10;
+            updateAIAtPowerLevelC = 75;
+            aiAtPowerLevelC = 13;
+            updateAIAtPowerLevelD = 85;
+            aiAtPowerLevelD = 17;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 2)
+        {
+            startingAILevel = 20;
+            forceAppearAtPower = 200;
+            updateAIAtPowerLevelA = 0;
+            aiAtPowerLevelA = 20;
+            updateAIAtPowerLevelB = 0;
+            aiAtPowerLevelB = 20;
+            updateAIAtPowerLevelC = 0;
+            aiAtPowerLevelC = 20;
+            updateAIAtPowerLevelD = 0;
+            aiAtPowerLevelD = 20;
+            aILevel = startingAILevel;
+        }
+        else
+        {
+            Debug.LogError("Eye difficulty error");
+        }
     }
 
     void CheckForActive()

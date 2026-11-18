@@ -89,6 +89,7 @@ public class MalMovementAI : MonoBehaviour
         checkForAIUpdate();
         UpdateDebugInfo();
     }
+
     void checkForAIUpdate()
     {
         var battery = FindAnyObjectByType<BatteryDisplay>();
@@ -113,6 +114,54 @@ public class MalMovementAI : MonoBehaviour
             powerLevelDReached = true;
         }
     }
+
+    public void ChangeAIDifficulty(int difficulty)
+    {
+        if (difficulty == 0)
+        {
+            startingAILevel = 0;
+            updateAIAtPowerLevelA = 50;
+            aiAtPowerLevelA = 1;
+            updateAIAtPowerLevelB = 65;
+            aiAtPowerLevelB = 4;
+            updateAIAtPowerLevelC = 75;
+            aiAtPowerLevelC = 8;
+            updateAIAtPowerLevelD = 90;
+            aiAtPowerLevelD = 12;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 1)
+        {
+            startingAILevel = 6;
+            updateAIAtPowerLevelA = 45;
+            aiAtPowerLevelA = 8;
+            updateAIAtPowerLevelB = 60;
+            aiAtPowerLevelB = 13;
+            updateAIAtPowerLevelC = 75;
+            aiAtPowerLevelC = 16;
+            updateAIAtPowerLevelD = 90;
+            aiAtPowerLevelD = 18;
+            aILevel = startingAILevel;
+        }
+        else if (difficulty == 2)
+        {
+            startingAILevel = 20;
+            updateAIAtPowerLevelA = 0;
+            aiAtPowerLevelA = 20;
+            updateAIAtPowerLevelB = 0;
+            aiAtPowerLevelB = 20;
+            updateAIAtPowerLevelC = 0;
+            aiAtPowerLevelC = 20;
+            updateAIAtPowerLevelD = 0;
+            aiAtPowerLevelD = 20;
+            aILevel = startingAILevel;
+        }
+        else
+        {
+            Debug.LogError("Mal difficulty error");
+        }
+    }
+
     void UpdateDebugInfo()
     {
         movementOpportunityTimerText.text = movementOpportunityTimer.ToString(format: "0.0000");
@@ -223,6 +272,7 @@ public class MalMovementAI : MonoBehaviour
         currentPoint = "1";
         updatePosition(currentPoint);
     }
+
     void jumpscare()
     {
         var audioPlayer = FindAnyObjectByType<AudioController>();
@@ -233,6 +283,7 @@ public class MalMovementAI : MonoBehaviour
         currentPoint = "1";
         updatePosition(currentPoint);
     }
+
     void updatePosition(string currentPoint)
     {
         var audioPlayer = FindAnyObjectByType<AudioController>();
