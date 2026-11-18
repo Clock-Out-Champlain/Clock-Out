@@ -378,7 +378,7 @@ public class GamesScript : MonoBehaviour
 
     private void GenerateCharacterSequence()
     {
-        const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string characters = "ABCDFGHIJKLMNOPQRSTUVXYZ";
 
         currentSequence = "";
 
