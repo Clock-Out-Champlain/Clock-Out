@@ -9,130 +9,116 @@ public class CanvasSwitcher : MonoBehaviour
     [Header("Game Canvases")]
     public GameObject mathCanvas;
     public GameObject characterCanvas;
-
     public GameObject radarCanvas;
-
-    /*
-    [Header("Simon Says")]
     public GameObject simonSaysCanvas;
-    */
 
+    [Header("Game Controller")]
+    public GamesScript gamesScript;
 
-    // Randomly selects a game
+    private void Awake()
+    {
+        FindGamesScript();
+    }
+
+    private bool FindGamesScript()
+    {
+        if (gamesScript == null)
+        {
+            gamesScript = GetComponent<GamesScript>();
+        }
+
+        if (gamesScript == null)
+        {
+            gamesScript = FindAnyObjectByType<GamesScript>(
+                FindObjectsInactive.Include
+            );
+        }
+
+        if (gamesScript == null)
+        {
+            Debug.LogError(
+                "CanvasSwitcher: No GamesScript found in the scene!"
+            );
+            return false;
+        }
+
+        return true;
+    }
+
     public void OpenRandomGame()
     {
-        Debug.Log("OPEN RANDOM GAME WAS CALLED!");
-
-        // Check that the required canvases exist
-        if (mathCanvas == null || characterCanvas == null)
-        {
-            Debug.LogError("Math Canvas or Character Canvas is missing!");
+        if (!FindGamesScript())
             return;
-        }
 
-        // Hide all canvases first
         if (tabletHomeCanvas != null)
-        {
             tabletHomeCanvas.SetActive(false);
-        }
 
-        mathCanvas.SetActive(false);
-        characterCanvas.SetActive(false);
-
-        /*
-        simonSaysCanvas.SetActive(false);
-        */
-        radarCanvas.SetActive(false);
-
-        // Randomly choose between Math and Character
-        int randomGame = Random.Range(0, 2);
-
-        switch (randomGame)
-        {
-            case 0:
-                OpenMathGame();                
-                Debug.Log("Random Game Selected: Math Game");
-                break;
-
-            case 1:
-                characterCanvas.SetActive(true);
-                Debug.Log("Random Game Selected: Character Game");
-                break;
-
-                /*
-                case 2:
-                    simonSaysCanvas.SetActive(true);
-                    Debug.Log("Random Game Selected: Simon Says");
-                    break;
-                */
-        }
+        gamesScript.StartRandomGame();
     }
 
-
-    // Return to tablet home
     public void BackToTabletHome()
     {
-        mathCanvas.SetActive(false);
-        characterCanvas.SetActive(false);
+        if (FindGamesScript())
+            gamesScript.HideAllMiniGames();
 
-        /*
-        simonSaysCanvas.SetActive(false);
-        */
-        radarCanvas.SetActive(false);
+        if (radarCanvas != null)
+            radarCanvas.SetActive(false);
 
         if (tabletHomeCanvas != null)
-        {
             tabletHomeCanvas.SetActive(true);
-        }
     }
 
-    // Open Radar directly
     public void OpenRadar()
     {
-        tabletHomeCanvas.SetActive(false);
-        characterCanvas.SetActive(false);
-        mathCanvas.SetActive(false);
-        /*
-        simonSaysCanvas.SetActive(false);
-        */
-        radarCanvas.SetActive(true);
+        if (FindGamesScript())
+            gamesScript.HideAllMiniGames();
+
+        if (tabletHomeCanvas != null)
+            tabletHomeCanvas.SetActive(false);
+
+        if (radarCanvas != null)
+            radarCanvas.SetActive(true);
     }
 
-    // Open Math Game directly
     public void OpenMathGame()
     {
-        tabletHomeCanvas.SetActive(false);
-        characterCanvas.SetActive(false);
-        mathCanvas.SetActive(true);
-        /*
-        simonSaysCanvas.SetActive(false);
-        */
-        radarCanvas.SetActive(false);
+        if (!FindGamesScript())
+            return;
+
+        if (radarCanvas != null)
+            radarCanvas.SetActive(false);
+
+        if (tabletHomeCanvas != null)
+            tabletHomeCanvas.SetActive(false);
+
+        gamesScript.OpenMathGame();
     }
 
-
-    // Open Character Game directly
     public void OpenCharacterGame()
     {
-        tabletHomeCanvas.SetActive(false);
-        mathCanvas.SetActive(false);
-        characterCanvas.SetActive(true);
-        /*
-        simonSaysCanvas.SetActive(false);
-        */
-        radarCanvas.SetActive(false);
+        if (!FindGamesScript())
+            return;
+
+        if (radarCanvas != null)
+            radarCanvas.SetActive(false);
+
+        if (tabletHomeCanvas != null)
+            tabletHomeCanvas.SetActive(false);
+
+        gamesScript.OpenCharacterGame();
     }
 
-
-    /*
-    // Open Simon Says directly
     public void OpenSimonSaysGame()
     {
-        tabletHomeCanvas.SetActive(false);
-        mathCanvas.SetActive(false);
-        characterCanvas.SetActive(false);
-        simonSaysCanvas.SetActive(true);
-        radarCanvas.SetActive(false);
+        if (!FindGamesScript())
+            return;
+
+        if (radarCanvas != null)
+            radarCanvas.SetActive(false);
+
+        if (tabletHomeCanvas != null)
+            tabletHomeCanvas.SetActive(false);
+
+        gamesScript.OpenSimonSaysGame();
     }
-    */
 }
