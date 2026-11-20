@@ -11,6 +11,10 @@
 * Can't be softlocked inside math
 * Power drain is now consistent between different fps
 ### Known Bugs
+* Eyesore jumpscare is buged
+  * Camera clips through floor
+  * POSSIBLE SEIZURE WARNING
+  * Game sometimes gets softlocked when dying to eyesore
 * Some UI breaks when not in full screen
 * Tablet bugs out when closed after submitting a minigame
 
