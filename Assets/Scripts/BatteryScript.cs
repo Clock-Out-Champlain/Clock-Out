@@ -17,6 +17,7 @@ public class BatteryDisplay : MonoBehaviour
     public TMP_Text homeBatteryText;
     public TMP_Text mathBatteryText;
     public TMP_Text characterBatteryText;
+    public TMP_Text simonBatteryText;
     public TMP_Text radarBatteryText;
 
     private void Start()
@@ -50,6 +51,7 @@ public class BatteryDisplay : MonoBehaviour
         homeBatteryText.text = percentage + "%";
         mathBatteryText.text = percentage + "%";
         characterBatteryText.text = percentage + "%";
+        simonBatteryText.text = percentage + "%";
         radarBatteryText.text = percentage + "%";
     }
 

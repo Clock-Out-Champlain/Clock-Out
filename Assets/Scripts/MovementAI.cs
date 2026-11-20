@@ -60,7 +60,6 @@ public class MovementAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        killIfPowerOut();
         if (aILevel <= 0)
         {
             updatePosition("0");
@@ -135,18 +134,6 @@ public class MovementAI : MonoBehaviour
         }
     }
 
-    void killIfPowerOut()
-    {
-        var battery = FindAnyObjectByType<BatteryDisplay>();
-        if (battery.batteryAmount <= 0)
-        {
-            aILevel = 20;
-            skipToPoint3Chance = 0;
-            goToPoint4sChance = 0;
-            returnToPoint4Chance = 0;
-        }
-    }
-
     void checkForAIUpdate()
     {
         var battery = FindAnyObjectByType<BatteryDisplay>();
@@ -206,6 +193,7 @@ public class MovementAI : MonoBehaviour
 
     void successfulMovementOpportunity()
     {
+        var audioPlayer = FindAnyObjectByType<AudioController>();
         // Random number for multible possible directions
         int randomPercent = UnityEngine.Random.Range(1, 101);
         if (currentPoint == "1")
@@ -263,7 +251,7 @@ public class MovementAI : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("DeathScreenRampage"); 
+                StartCoroutine(audioPlayer.Jumpscare("Rampage"));
                 Debug.Log("Jumpscare");
             }
         }

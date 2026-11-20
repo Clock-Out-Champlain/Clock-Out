@@ -49,7 +49,6 @@ public class EyeMovementAI : MonoBehaviour
     [Header("Path split chances")]
 
     public MainMenu mainMenu;
-    public ScreenEffects screenEffects;
     public TabletController tablet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,7 +93,6 @@ public class EyeMovementAI : MonoBehaviour
         }
         if (timeInOfficeTimer >= 5)
         {
-            Debug.Log("JUMPSCARE 1");
             StartCoroutine(audioPlayer.Jumpscare("Eyesore"));
         }
         CheckForActive();
@@ -160,7 +158,7 @@ public class EyeMovementAI : MonoBehaviour
         {
             entitySprite.transform.position = startPosition;
         }
-        if (agroTimer >= (26 - aILevel))
+        if (agroTimer >= (25 - aILevel))
         {
             agroTimer = 0;
             movementAnimationActive = true;

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScreenEyesore.unity
     guid: 30bfb7b4144a8054cb99f84d968421aa
+  - enabled: 1
+    path: Assets/Scenes/DeathScreenMalWerewolf.unity
+    guid: dc2014a8f8d60d94fa405ffc3d014ba8
   m_configObjects: {}

@@ -61,8 +61,9 @@ public class MalMovementAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        killIfPowerOut();
         var battery = FindAnyObjectByType<BatteryDisplay>();
-        if (aILevel <= 0 || battery.batteryAmount <= 0)
+        if (aILevel <= 0)
         {
             currentPoint = "0";
             updatePosition(currentPoint);
@@ -88,6 +89,18 @@ public class MalMovementAI : MonoBehaviour
         }
         checkForAIUpdate();
         UpdateDebugInfo();
+    }
+
+    void killIfPowerOut()
+    {
+        var battery = FindAnyObjectByType<BatteryDisplay>();
+        if (battery.batteryAmount <= 0)
+        {
+            aILevel = 20;
+            skipToPoint3Chance = 0;
+            goToPoint4sChance = 0;
+            returnToPoint4Chance = 0;
+        }
     }
 
     void checkForAIUpdate()
@@ -277,11 +290,18 @@ public class MalMovementAI : MonoBehaviour
     {
         var audioPlayer = FindAnyObjectByType<AudioController>();
         var batteryScript = FindAnyObjectByType<BatteryDisplay>();
-
-        batteryScript.batteryAmount -= jumpscareDrainAmount;
-        audioPlayer.PowerDrain();
-        currentPoint = "1";
-        updatePosition(currentPoint);
+        if (batteryScript.batteryAmount >= 0)
+        {
+            batteryScript.batteryAmount -= jumpscareDrainAmount;
+            audioPlayer.PowerDrain();
+            currentPoint = "1";
+            updatePosition(currentPoint);
+        }
+        else
+        {
+            StartCoroutine(audioPlayer.Jumpscare("Malwerewolf"));
+        }
+        
     }
 
     void updatePosition(string currentPoint)
